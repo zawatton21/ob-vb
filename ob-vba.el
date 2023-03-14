@@ -40,7 +40,7 @@
 (add-to-list 'org-babel-tangle-lang-exts '("vba" . "bas"))
 ;(add-to-list 'org-babel-tangle-lang-exts '("vba" . "vba"))
 
-(add-to-list 'org-src-lang-modes '("vba" . visual-basic-mode))
+(add-to-list 'org-src-lang-modes '("vba" . visual-basic))
 
 (defun org-babel-execute:vba (body params)
   "Execute a block of VBA code with org-babel."
