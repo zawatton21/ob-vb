@@ -5,3 +5,7 @@
 ;;(require 'ob-eval)
 
 (add-to-list 'org-babel-tangle-lang-exts '("vba" . "bas"))
+
+(provide 'ob-vba)
+
+;;; ob-vba.el ends here
