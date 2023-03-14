@@ -36,7 +36,21 @@
 ;;(require 'ob-comint)
 ;;(require 'ob-eval)
 
+
 (add-to-list 'org-babel-tangle-lang-exts '("vba" . "bas"))
+;(add-to-list 'org-babel-tangle-lang-exts '("vba" . "vba"))
+
+(add-to-list 'org-src-lang-modes '("vba" . visual-basic-mode))
+
+(defun org-babel-execute:vba (body params)
+  "Execute a block of VBA code with org-babel."
+  (let ((result
+         (with-temp-buffer
+           (insert body)
+           (call-process-region (point-min) (point-max) "cscript" t t nil "-")))
+        (result-type (cdr (assoc :result-type params))))
+    (org-babel-result-cond result-type result "")))
+
 
 (provide 'ob-vba)
 
